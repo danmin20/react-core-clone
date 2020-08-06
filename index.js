@@ -1,40 +1,24 @@
 import { createElement } from "./src/createElement.js";
-import ReactDOM from "react-dom";
+import ReactDOM from "./src/reactDom";
 
-const Title = () => {
+const Component1 = () => {
   return createElement(
     "div",
-    {
-      style: {
-        fontSize: "40px",
-      },
-    },
-    "DEPROMEET_ React Study"
+    null,
+    createElement("text", null, "DEPROMEET_ React Study")
+  );
+};
+
+const Component2 = () => {
+  return createElement(
+    "div",
+    null,
+    createElement("text", null, "danmin20_lee.jeong.min")
   );
 };
 
 const Element = () => {
-  return createElement(
-    "div",
-    null,
-    createElement(
-      "div",
-      {
-        key: 1,
-      },
-      createElement(Title, null)
-    ),
-    createElement(
-      "div",
-      {
-        key: 2,
-        style: {
-          opacity: "50%",
-        },
-      },
-      "danmin20_lee.jeong.min"
-    )
-  );
+  return createElement("div", null, Component1, Component2);
 };
 
 ReactDOM.render(createElement(Element, null), document.getElementById("root"));
